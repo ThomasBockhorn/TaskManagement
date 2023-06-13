@@ -5,7 +5,7 @@
             class="py-8 px-4 mx-auto max-w-screen-xl max-h-screen-xl text-center lg:py-16"
         >
             <h1
-                class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl"
+                class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
             >
                 Welcome to Task Management
             </h1>
@@ -25,7 +25,7 @@
                 </Link>
                 <Link
                     :href="route('register')"
-                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-black focus:ring-4 focus:ring-gray-100"
                 >
                     Register
                 </Link>
