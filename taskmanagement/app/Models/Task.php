@@ -18,4 +18,12 @@ class Task extends Model
         'task_name',
         'priority',
     ];
+
+    /**
+     * Many to one relationship with users.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
