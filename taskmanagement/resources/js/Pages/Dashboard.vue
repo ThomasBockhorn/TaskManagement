@@ -21,8 +21,18 @@
                     draggable="true"
                     @dragstart="dragTask($event, task)"
                 >
-                    <div class="p-6 text-gray-900">
-                        {{ task.task_name }}
+                    <div class="flex">
+                        <div class="p-6 text-gray-900 flex-1">
+                            {{ task.task_name }}
+                        </div>
+                        <div>
+                            <button
+                                class="m-5 bg-red-500 rounded p-2 text-white"
+                                @click="deleteTask(task.id)"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,8 +49,18 @@
                     draggable="true"
                     @dragstart="dragTask($event, task)"
                 >
-                    <div class="p-6 text-gray-900">
-                        {{ task.task_name }}
+                    <div class="flex">
+                        <div class="p-6 text-gray-900 flex-1">
+                            {{ task.task_name }}
+                        </div>
+                        <div>
+                            <button
+                                class="m-5 bg-red-500 rounded p-2 text-white"
+                                @click="deleteTask(task.id)"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,6 +105,9 @@ export default {
                 priority: priority,
             });
             task.priority = priority;
+        },
+        deleteTask(id) {
+            this.$inertia.delete(`/tasks/${id}`);
         },
     },
 };
