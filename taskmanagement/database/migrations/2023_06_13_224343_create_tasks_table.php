@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('task_name');
             $table->integer('priority')->unsigned();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
