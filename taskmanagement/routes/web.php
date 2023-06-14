@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TaskController;
+use App\Models\Task;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\TaskController;
-use App\Models\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $tasks = Task::where('user_id', auth()->id())->get();
+
     return Inertia::render('Dashboard')->with('tasks', $tasks);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

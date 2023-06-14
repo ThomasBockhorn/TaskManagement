@@ -7,14 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         Task::create([
-           'task_name' => $request->task_name,
+            'task_name' => $request->task_name,
             'priority' => $request->priority,
             'user_id' => auth()->id(),
         ]);
