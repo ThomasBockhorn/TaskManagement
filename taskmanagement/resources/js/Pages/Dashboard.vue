@@ -44,6 +44,9 @@
                     </div>
                 </div>
             </div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <TaskForm />
+            </div>
         </div>
     </AuthenticatedLayout>
 </template>
@@ -51,11 +54,13 @@
 <script>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
+import TaskForm from "@/Components/TaskForm/TaskForm.vue";
 
 export default {
     components: {
         AuthenticatedLayout,
         Head,
+        TaskForm,
     },
     data() {
         return {
