@@ -10,4 +10,4 @@ Once you see it on the screen, you will need to register as a new user. Once you
 
 ## Other Options to view it
 
-Instead of that, you could also type in the IP address 67.207.91.104 in your browser. I have setup a live demonstration for taskmanagement. You could also clone TaskManagement from GitHub then follow the same procedure as installation instruction.
+You could also clone TaskManagement from GitHub then follow the same procedure as installation instruction.
