@@ -24,9 +24,12 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Task $task)
     {
+
         $task->update([
             'priority' => $request->priority,
+            'task_name' => $request->task_name,
         ]);
+
     }
 
     /**

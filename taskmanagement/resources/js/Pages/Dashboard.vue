@@ -102,6 +102,7 @@ export default {
             const taskID = event.dataTransfer.getData("taskID");
             const task = this.tasks.find((task) => task.priority == taskID);
             this.$inertia.put(`/tasks/${task.id}`, {
+                task_name: task.task_name,
                 priority: priority,
             });
             task.priority = priority;
