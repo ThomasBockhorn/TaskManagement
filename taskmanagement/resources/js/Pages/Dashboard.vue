@@ -81,6 +81,9 @@ export default {
         dropTask(event, priority) {
             const taskID = event.dataTransfer.getData("taskID");
             const task = this.tasks.find((task) => task.priority == taskID);
+            this.$inertia.put(`/tasks/${task.id}`, {
+                priority: priority,
+            });
             task.priority = priority;
         },
     },
