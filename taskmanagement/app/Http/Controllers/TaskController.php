@@ -13,7 +13,11 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Task::create([
+           'task_name' => $request->task_name,
+            'priority' => $request->priority,
+            'user_id' => auth()->id(),
+        ]);
     }
 
     /**
