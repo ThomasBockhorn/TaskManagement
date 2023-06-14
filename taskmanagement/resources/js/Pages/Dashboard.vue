@@ -62,27 +62,8 @@ export default {
         Head,
         TaskForm,
     },
-    data() {
-        return {
-            tasks: [
-                {
-                    id: 0,
-                    task_name: "Task 1",
-                    priority: 1,
-                },
-                {
-                    id: 1,
-                    task_name: "Task 2",
-                    priority: 2,
-                },
-                {
-                    id: 2,
-                    task_name: "Task 3",
-                    priority: 1,
-                },
-            ],
-        };
-    },
+    props: ["tasks"],
+
     computed: {
         tasksOne() {
             return this.tasks.filter((task) => task.priority === 1);
