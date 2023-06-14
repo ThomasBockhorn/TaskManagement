@@ -118,6 +118,6 @@ export default {
 .workbench {
     background-color: #eee;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 20px;
 }
 </style>
