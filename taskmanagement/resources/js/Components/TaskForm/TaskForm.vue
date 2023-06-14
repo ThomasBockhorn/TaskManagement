@@ -33,10 +33,18 @@
                 </select>
             </div>
             <button
+                v-if="editFunction"
                 type="submit"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             >
                 Submit
+            </button>
+            <button
+                v-else
+                @click="editTask"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            >
+                Edit
             </button>
         </form>
     </div>
@@ -49,10 +57,17 @@ export default {
     components: {
         Link,
     },
-    setup() {
+    props: ["task", "editFunction"],
+    watch: {
+        task() {
+            this.form.task_name = this.task.task_name;
+            this.form.priority = this.task.priority;
+        },
+    },
+    setup(props) {
         const form = useForm({
-            task_name: "",
-            priority: "",
+            task_name: props.task.task_name,
+            priority: props.task.priority,
         });
 
         const submit = () => {
@@ -64,6 +79,13 @@ export default {
             form,
             submit,
         };
+    },
+    methods: {
+        editTask() {
+            this.form.put(route("tasks.update", this.task.id));
+            this.form.reset();
+            this.$emit("editFunction", true);
+        },
     },
 };
 </script>

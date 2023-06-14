@@ -32,6 +32,12 @@
                             >
                                 Delete
                             </button>
+                            <button
+                                class="m-5 bg-green-500 rounded p-2 text-white"
+                                @click="editTask(task.id)"
+                            >
+                                Edit
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -60,12 +66,22 @@
                             >
                                 Delete
                             </button>
+                            <button
+                                class="m-5 bg-green-500 rounded p-2 text-white"
+                                @click="editTask(task.id)"
+                            >
+                                Edit
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <TaskForm />
+                <TaskForm
+                    :task="task"
+                    :editFunction="editFunction"
+                    @editFunction="tasks"
+                />
             </div>
         </div>
     </AuthenticatedLayout>
@@ -82,8 +98,21 @@ export default {
         Head,
         TaskForm,
     },
+    data() {
+        return {
+            task: {
+                task_name: "",
+                priority: 1,
+            },
+            editFunction: true,
+        };
+    },
     props: ["tasks"],
-
+    watch: {
+        tasks(event) {
+            this.editFunction = event;
+        },
+    },
     computed: {
         tasksOne() {
             return this.tasks.filter((task) => task.priority === 1);
@@ -109,6 +138,10 @@ export default {
         },
         deleteTask(id) {
             this.$inertia.delete(`/tasks/${id}`);
+        },
+        editTask(id) {
+            this.task = this.tasks.find((task) => task.id == id);
+            this.editFunction = false;
         },
     },
 };
